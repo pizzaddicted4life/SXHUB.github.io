@@ -1,145 +1,102 @@
-
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-    <meta charset="UTF-8"> 
+  <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <htitle>SPLASH</title>
+    <title>SPLASH</title>
     <link rel="icon" href="https://raw.githubusercontent.com/pizzaddicted4life/SXHUB.github.io/refs/heads/main/assets/images/00-_2_-.ico">
-    <link rel="stylesheet" href="css/style.css">  
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Estilos CSS -->
     <style>
-        * {
-			padding: 0;
-			margin: 0;
-		}
-		html, body {
-			position: relative;
-			width: 100%;
-			height: 100%;
-		}
-		body {
-			background: #eee;
-		}
-		canvas {
-			background: white;
-			display: block;
-			position: absolute;
-			left: 50%;
-			top: 50%;
-			transform: translate(-50%, -50%);
-		}
+      body {
+        width: 100%;
+        height: 100%;
+        background-color: #000020;
+        background-image: radial-gradient(circle at top right, rgba(121, 68, 154, 0.13), transparent),
+        radial-gradient(circle at 20% 80%, #000 transparent);
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* Centrado del LOGO SVG */
+      .LOGO {
+        position: absolute;
+        width: 15vw; /* Ajuste automático al ancho de la pantalla */
+        height: auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0.8;
+      }
+
+      /* Efecto de neón titilante */
+      .LOGO svg {
+        filter: drop-shadow(0 0 10px #00ffcc);
+        animation: neonGlow 1.5s infinite alternate;
+      }
+
+      @keyframes neonGlow {
+        from {
+          filter: drop-shadow(0 0 10px #00ffcc) drop-shadow(0 0 20px #00ffcc);
+        }
+        to {
+          filter: drop-shadow(0 0 20px #00ffcc) drop-shadow(0 0 30px #00ffcc);
+        }
+      }
+
+      canvas {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+      }
+
+      a {
+        position: absolute;
+        bottom: 2vmin;
+        right: 2vmin;
+        color: rgba(255, 255, 255, 0.2);
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: #0800ff;
+      }
     </style>
-</head>
-<body>
-    <canvas id="c" width="1024" height="768"></canvas>
-</body>
-<script>
-    ;(function(main) {
-		main();
-	})(function() {
+  </head>
+  <body>
+    <!-- Logo SVG centrado -->
+    <div class="LOGO">
+<svg version="1.0" x
+ width="180.000000pt" height="180.000000pt" viewBox="0 0 180.000000 180.000000"
+ preserveAspectRatio="xMidYMid meet">
 
-		'use strict';
-
-		var c = document.getElementById('c'),
-			ctx = c.getContext('2d');
-
-		var Energy = function(cx, cy, r1, r2, a1, a2) {
-
-			this.cx = cx;
-			this.cy = cy;
-
-			this.a1 = a1;
-			this.a2 = a2
-
-			this.r1 = r1;			
-			this.r2 = r2;			
-
-			this.x = this.cx + Math.cos(this.a1) * this.r1;
-			this.y = this.cy + Math.sin(this.a2) * this.r2;			
-
-			this.ox = this.x;
-			this.oy = this.y;
-
-			this.as1 = this.as2 = Math.random() * 0.8 - 0.4;
-		
-		};
-
-		Energy.prototype = {
-			constructor: Energy,
-			update: function() {
-				this.ox = this.x;
-				this.oy = this.y;
-				this.x = this.cx + Math.cos(this.a1) * this.r1;
-				this.y = this.cy + Math.sin(this.a2) * this.r2;
-				this.a1 += this.as1;
-				this.a2 += this.as2;
-			},
-			render: function(ctx) {
-
-				ctx.lineWidth = 1 + Math.random() * 2;
-				ctx.strokeStyle = "#023E78";
-				ctx.beginPath();
-				ctx.moveTo(this.ox, this.oy);
-				ctx.lineTo(this.x, this.y);
-				ctx.stroke();
-
-				ctx.lineWidth = Math.random();
-				ctx.strokeStyle = "#111";
-				ctx.beginPath();
-				ctx.moveTo(this.ox, this.oy);
-				ctx.lineTo(this.x, this.y);
-				ctx.stroke();
-
-			}
-		};
-
-
-		var energyCount = 500;
-		var energyList = [];
-		var energy = null;
-		var r = null;
-		var a = null;
-
-		for(var i = 0; i < energyCount; i++) {
-
-			if(i < 300) {
-				energy = new Energy(
-					c.width / 2, c.height / 2,
-					Math.random() * 145,
-					Math.random() * 145,
-					Math.PI * 2 * Math.random(),
-					Math.PI * 2 * Math.random()
-				);
-			} else {
-				r = Math.random() * 180;
-				a = Math.PI * 2 * Math.random();
-				energy = new Energy(
-					c.width / 2, c.height / 2,
-					r,
-					r,
-					a, 
-					a
-				);
-			}
-
-			energyList.push(energy);				
-
-		}
-
-		requestAnimationFrame(function loop() {
-			requestAnimationFrame(loop);
-			ctx.globalCompositeOperation = 'source-over';
-			ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
-			ctx.fillRect(0, 0, c.width, c.height);
-			ctx.globalCompositeOperation = 'lighter';
-			for(var i = 0; i < energyCount; i++) {
-				energy = energyList[i];
-				energy.update();
-				energy.render(ctx);				
-			}
-		});
-
-	});
-</script>
+<g transform="translate(0.000000,180.000000) scale(0.100000,-0.100000)"
+fill="#FFF" stroke="none">
+<path d="M346 1789 c-79 -12 -175 -58 -226 -109 -56 -56 -98 -148 -110 -241
+-12 -96 -12 -982 0 -1078 26 -195 151 -323 345 -351 92 -13 998 -13 1090 0
+194 28 319 156 345 351 12 96 12 982 0 1078 -26 195 -151 323 -345 351 -85 12
+-1015 11 -1099 -1z m617 -163 c18 -7 51 -33 72 -58 25 -28 55 -50 80 -58 158
+-50 328 -198 404 -353 24 -48 41 -94 37 -102 -3 -8 -1 -15 3 -15 15 0 31 -96
+31 -189 0 -377 -313 -691 -690 -691 -108 0 -202 23 -308 76 -76 37 -109 61
+-175 127 -140 140 -196 264 -204 454 -7 138 12 230 69 346 75 150 253 302 406
+348 30 9 48 22 63 46 43 69 138 101 212 69z"/>
+<path d="M652 1320 c-249 -125 -353 -438 -231 -697 40 -84 95 -151 162 -197
+32 -22 57 -44 57 -49 0 -6 2 -8 6 -5 3 3 35 -5 72 -18 37 -13 77 -24 90 -24
+12 0 22 -4 22 -8 0 -10 156 3 212 18 62 17 145 62 213 115 33 26 59 49 58 51
+-2 2 12 28 31 56 18 29 42 77 52 106 10 28 22 52 25 52 3 0 4 11 1 25 -2 14 0
+25 4 25 6 0 6 43 1 103 -5 56 -9 112 -10 125 -1 12 -6 22 -11 22 -4 0 -6 7 -2
+15 3 8 2 15 -2 15 -4 0 -20 26 -37 58 -43 84 -138 174 -226 217 -83 39 -92 41
+-109 20 -7 -8 -16 -12 -21 -9 -5 3 -9 1 -9 -5 0 -6 -14 -18 -32 -27 -50 -26
+-128 -15 -177 24 -22 18 -44 32 -49 32 -5 0 -46 -18 -90 -40z m325 -252 c53
+-23 102 -69 127 -120 43 -87 31 -172 -36 -244 -22 -24 -44 -42 -48 -39 -4 3
+-10 -1 -13 -9 -3 -7 -26 -19 -52 -26 -130 -36 -285 81 -285 217 0 127 103 233
+227 233 29 0 65 -5 80 -12z"/>
+</g>
+</svg>
+    </div>
+  </body>
 </html>
