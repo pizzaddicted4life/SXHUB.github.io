@@ -1,7 +1,7 @@
 const pages = [
-    'main/00______Template.html',
-    'main/02______Splash_Screen.html',
-    'main/03______Under_Construction.html'
+    '00______Template.html',
+    '02______Splash_Screen.html',
+    '03______Under_Construction.html'
   ];
   
   let currentPage = 0;
