@@ -1,0 +1,99 @@
+/* Colores base */
+:root {
+    --color-bg-dark: #000000;   /* Fondo principal: Negro */
+    --color-bg-light: #031D3B;  /* Fondo secundario: Azul oscuro */
+    --color-text-light: #E3E4E5; /* Texto principal: Silver */
+    --color-accent-yellow: #FFF000; /* Color de acento: Amarillo */
+    --color-neutral: #E3E4E5; /* Neutral para bordes o fondo claro */
+    --color-accent-blue: #00FFFF; /* Neutral para bordes o fondo claro */
+}
+
+/* LOGO INTRO 1 */
+@import url('https://fonts.googleapis.com/css2?family=Saira:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons+Round');
+
+/* General Body */
+body {
+    font-family: 'Saira', sans-serif;
+    background-color: var(--color-bg-dark); /* Fondo negro */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Altura de la pantalla completa */
+}
+
+/* Splash Container */
+.splash-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%; /* Altura completa del contenedor */
+    text-align: center;
+}
+
+/* Estilo del SVG */
+.svg-icon {
+    background-color: rgba(51, 63, 255, 0.4);
+    border: 4px solid #031D3B;
+    backdrop-filter: blur(4px);
+    height: 100px;
+    width: 100px;
+    margin: 0 auto;
+    display: block;
+    animation: glow 2s infinite;
+}
+
+/* Efecto de brillo en el borde */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px #031D3B, 0 0 10px #031D3B, 0 0 20px #031D3B, 0 0 40px #333fff;
+    }
+    100% {
+        box-shadow: 0 0 10px #031D3B, 0 0 20px #031D3B, 0 0 40px #333fff, 0 0 80px #333fff;
+    }
+}
+
+/* Estilo del texto animado */
+.animate-character {
+    text-transform: uppercase;
+    background: linear-gradient(45deg, #00DDFF, #e3e4e5);
+    background-size: 200% auto;
+    color: #000020;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: text-fill-color 2s linear infinite, glow-text 1.5s infinite;
+    font-size: 24px; /* Tamaño de fuente */
+    font-weight: 500;
+    margin-top: 20px; /* Margen superior */
+}
+
+@keyframes text-fill-color {
+    to {
+        background-position: 200% center;
+    }
+}
+
+@keyframes glow-text {
+    0%, 100% {
+        text-shadow: 0 0 5px #333fff, 0 0 10px #333fff, 0 0 20px #031D3B, 0 0 30px #333fff;
+    }
+    50% {
+        text-shadow: 0 0 10px #333fff, 0 0 20px #333fff, 0 0 40px #031D3B, 0 0 50px #333fff;
+    }
+}
+/* Efecto UNDERCONSTRUCTION
+*/
+.fade-in {
+    opacity: 1;
+  }
+}
+
+#content {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}

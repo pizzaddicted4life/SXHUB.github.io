@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Splash Screen</title>
+  <link rel="icon" href="https://raw.githubusercontent.com/pizzaddicted4life/SXHUB.github.io/refs/heads/main/assets/images/00-_2_-.ico" type="favicon" />
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <!-- Incluir Babel para transpilar JavaScript moderno -->
+  <script src="https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #000; /* Fondo negro para mayor contraste */
+      overflow: hidden;
+    }
+    .splash-container {
+      display: flex;
+      align-items: center;
+      justify-content: center; 
+    }
+    /* Estilo del SVG */
+    .svg-icon {
+      border: 8px solid #ffffff;
+      border-radius: 35%;
+      backdrop-filter: blur(4px);
+      width: fit-content;
+      margin: 0 auto;
+      display: block;
+      transform: scale(0.10); /* Ajustar tamaño */
+      animation: glow 2s infinite;
+      position: absolute;
+    }
+    /* Efecto de brillo en el borde */
+    @keyframes glow {
+      0% {
+        box-shadow: 0 0 5px #031D3B, 0 0 10px #031D3B, 0 0 20px #031D3B, 0 0 40px #333fff;
+      }
+      100% {
+        box-shadow: 0 0 10px #031D3B, 0 0 20px #031D3B, 0 0 40px #333fff, 0 0 80px #333fff;
+      }
+    }
+    /* Estilo del texto */
+    .animate-character {
+      font-size: 24px;
+      color: rgba(151, 157, 248, 0.4); 
+      text-transform: uppercase;
+      margin-top: 150%;
+      font-family: 'Saira', sans-serif;
+      font-weight: 500;
+      -webkit-text-stroke: .1px #ffffff;
+      user-select: none;
+      animation: glow 2s infinite;
+      text-shadow: 
+      /*/*1px 1px 0 #031D3B-,  /* Top-left shadow */
+      /*/*-1px 1px 0 #031D3B, /* Top-right shadow */
+      /*/* 1px -1px 0 #333fff, /* Bottom-left shadow */
+      /*/*-1px -1px 0 #031D3B; /* Bottom-right shadow */
+}
+    /* Efecto de brillo en el TEXTO*/
+    @keyframes glow {
+      0% {
+        text-shadow: 0 0 5px #031D3B, 0 0 10px #031D3B, 0 0 20px #031D3B, 0 0 40px #333fff;
+      }
+      100% {
+        text-shadow: : 0 0 10px #031D3B, 0 0 20px #031D3B, 0 0 40px #333fff, 0 0 80px #333fff;
+      }
+    }
+    canvas {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+      }
+
+      a {
+        position: absolute;
+        bottom: 2vmin;
+        right: 2vmin;
+        color: rgba(113, 102, 167, 0.2);
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: #fff;
+      }
+
+  </style>
+</head>
+<body>
+  <div class="splash-container">
+    <!-- SVG Icon -->
+    <div class="svg-icon">
+      <svg version="1.1" id="Capa_1" x="0px" y="0px"
+      width="1000px" height="1000px" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000" xml:space="preserve">
+        <g>
+          <path fill="rgba(151, 157, 248, 0.4)" d="M705,5H305C139.314,5,5,139.314,5,305v400c0,165.686,134.314,300,300,300h400
+            c165.686,0,300-134.314,300-300V305C1005,139.314,870.686,5,705,5z M831.711,637.944c-17.86,42.228-43.424,80.146-75.979,112.701
+            c-32.556,32.555-70.474,58.118-112.701,75.979c-43.734,18.499-90.175,27.878-138.031,27.878c-47.856,0-94.296-9.379-138.031-27.878
+            c-42.228-17.86-80.146-43.424-112.701-75.979c-32.555-32.556-58.118-70.474-75.979-112.701
+            c-18.498-43.734-27.877-90.175-27.877-138.031c0-47.856,9.379-94.296,27.877-138.031c17.861-42.228,43.424-80.146,75.979-112.701
+            s70.473-58.118,112.701-75.979c15.48-6.548,31.306-11.929,47.408-16.18c8.096-42.68,45.588-74.954,90.624-74.954
+            c45.035,0,82.527,32.274,90.624,74.955c16.102,4.251,31.927,9.632,47.407,16.18c42.228,17.861,80.146,43.424,112.701,75.979
+            c32.555,32.555,58.118,70.473,75.979,112.701c18.499,43.735,27.878,90.175,27.878,138.031
+            C859.589,547.77,850.21,594.21,831.711,637.944z"/>
+          <path fill="rgba(151, 157, 248, 0.4)" d="M586.847,216.904c-15.388,29.512-46.262,49.664-81.847,49.664c-35.585,0-66.46-20.152-81.847-49.664
+            c-122.743,35.553-212.742,148.962-212.742,283.009c0,162.437,132.152,294.589,294.589,294.589
+            c162.437,0,294.589-132.152,294.589-294.589C799.589,365.867,709.589,252.457,586.847,216.904z M505,644.428
+            c-77.004,0-139.428-62.424-139.428-139.428S427.996,365.572,505,365.572S644.428,427.996,644.428,505S582.004,644.428,505,644.428z
+            "/>
+        </g>
+      </svg>
+    </div>
+    <!-- Nombre de la aplicación -->
+    <div class="animate-character">ANDROS</div>
+  </div>
+
+    <canvas></canvas>
+
+    <!-- Código JavaScript moderno con Babel -->
+    <script type="text/babel">
+      const STAR_COLOR = '#fff';
+      const STAR_SIZE = 3;
+      const STAR_MIN_SCALE = 0.2;
+      const OVERFLOW_THRESHOLD = 50;
+      const STAR_COUNT = ( window.innerWidth + window.innerHeight ) / 8;
+
+      const canvas = document.querySelector('canvas'),
+            context = canvas.getContext('2d');
+
+      let scale = 1, // device pixel ratio
+          width,
+          height;
+
+      let stars = [];
+
+      let pointerX,
+          pointerY;
+
+      let velocity = { x: 0, y: 0, tx: 0, ty: 0, z: 0.0005 };
+
+      let touchInput = false;
+
+      generate();
+      resize();
+      step();
+
+      window.onresize = resize;
+      canvas.onmousemove = onMouseMove;
+      canvas.ontouchmove = onTouchMove;
+      canvas.ontouchend = onMouseLeave;
+      document.onmouseleave = onMouseLeave;
+
+      function generate() {
+          for (let i = 0; i < STAR_COUNT; i++) {
+              stars.push({
+                  x: 0,
+                  y: 0,
+                  z: STAR_MIN_SCALE + Math.random() * (1 - STAR_MIN_SCALE)
+              });
+          }
+      }
+
+      function placeStar(star) {
+          star.x = Math.random() * width;
+          star.y = Math.random() * height;
+      }
+
+      function recycleStar(star) {
+          let direction = 'z';
+
+          let vx = Math.abs(velocity.x),
+              vy = Math.abs(velocity.y);
+
+          if (vx > 1 || vy > 1) {
+              let axis;
+
+              if (vx > vy) {
+                  axis = Math.random() < vx / (vx + vy) ? 'h' : 'v';
+              } else {
+                  axis = Math.random() < vy / (vx + vy) ? 'v' : 'h';
+              }
+
+              if (axis === 'h') {
+                  direction = velocity.x > 0 ? 'l' : 'r';
+              } else {
+                  direction = velocity.y > 0 ? 't' : 'b';
+              }
+          }
+
+          star.z = STAR_MIN_SCALE + Math.random() * (1 - STAR_MIN_SCALE);
+
+          if (direction === 'z') {
+              star.z = 0.1;
+              star.x = Math.random() * width;
+              star.y = Math.random() * height;
+          } else if (direction === 'l') {
+              star.x = -OVERFLOW_THRESHOLD;
+              star.y = height * Math.random();
+          } else if (direction === 'r') {
+              star.x = width + OVERFLOW_THRESHOLD;
+              star.y = height * Math.random();
+          } else if (direction === 't') {
+              star.x = width * Math.random();
+              star.y = -OVERFLOW_THRESHOLD;
+          } else if (direction === 'b') {
+              star.x = width * Math.random();
+              star.y = height + OVERFLOW_THRESHOLD;
+          }
+      }
+
+      function resize() {
+          scale = window.devicePixelRatio || 1;
+
+          width = window.innerWidth * scale;
+          height = window.innerHeight * scale;
+
+          canvas.width = width;
+          canvas.height = height;
+
+          stars.forEach(placeStar);
+      }
+
+      function step() {
+          context.clearRect(0, 0, width, height);
+
+          update();
+          render();
+
+          requestAnimationFrame(step);
+      }
+
+      function update() {
+          velocity.tx *= 0.96;
+          velocity.ty *= 0.96;
+
+          velocity.x += (velocity.tx - velocity.x) * 0.8;
+          velocity.y += (velocity.ty - velocity.y) * 0.8;
+
+          stars.forEach((star) => {
+              star.x += velocity.x * star.z;
+              star.y += velocity.y * star.z;
+
+              star.x += (star.x - width / 2) * velocity.z * star.z;
+              star.y += (star.y - height / 2) * velocity.z * star.z;
+              star.z += velocity.z;
+
+              if (star.x < -OVERFLOW_THRESHOLD || star.x > width + OVERFLOW_THRESHOLD || star.y < -OVERFLOW_THRESHOLD || star.y > height + OVERFLOW_THRESHOLD) {
+                  recycleStar(star);
+              }
+          });
+      }
+
+      function render() {
+          stars.forEach((star) => {
+              context.beginPath();
+              context.lineCap = 'round';
+              context.lineWidth = STAR_SIZE * star.z * scale;
+              context.globalAlpha = 0.5 + 0.5 * Math.random();
+              context.strokeStyle = STAR_COLOR;
+
+              context.beginPath();
+              context.moveTo(star.x, star.y);
+
+              var tailX = velocity.x * 2,
+                  tailY = velocity.y * 2;
+
+              if (Math.abs(tailX) < 0.1) tailX = 0.5;
+              if (Math.abs(tailY) < 0.1) tailY = 0.5;
+
+              context.lineTo(star.x + tailX, star.y + tailY);
+
+              context.stroke();
+          });
+      }
+
+      function movePointer(x, y) {
+          if (typeof pointerX === 'number' && typeof pointerY === 'number') {
+              let ox = x - pointerX,
+                  oy = y - pointerY;
+
+              velocity.tx = velocity.tx + (ox / 8 * scale) * (touchInput ? 1 : -1);
+              velocity.ty = velocity.ty + (oy / 8 * scale) * (touchInput ? 1 : -1);
+          }
+
+          pointerX = x;
+          pointerY = y;
+      }
+
+      function onMouseMove(event) {
+          touchInput = false;
+
+          movePointer(event.clientX, event.clientY);
+      }
+
+      function onTouchMove(event) {
+          touchInput = true;
+
+          movePointer(event.touches[0].clientX, event.touches[0].clientY, true);
+
+          event.preventDefault();
+      }
+
+      function onMouseLeave() {
+          pointerX = null;
+          pointerY = null;
+      }
+    </script>
+</body>
+</html>
