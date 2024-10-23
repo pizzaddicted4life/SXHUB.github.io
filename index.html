@@ -1,18 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <meta http-equiv="x-ua-compatible" content="ie=edge" />
-  <title>ANDROS</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>NAV</title>
+  <!-- Enlace al CSS -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Script -->
+  <script src="script.js"></script>
+  
+  <!-- Iconify -->
+  <script src="https://code.iconify.design/2/2.0.4/iconify.min.js"></script>
   <link rel="icon" href="https://raw.githubusercontent.com/pizzaddicted4life/ANDROS.github.io/refs/heads/main/assets/images/00-_2_-.ico" type="favicon" />
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  
+  <!-- Babel para transpilar JavaScript moderno -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js"></script>
+  
+  <!-- Fuentes e iconos -->
+  <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.indigo-pink.min.css">
+  <script src="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira:wght@100;200;300;400;500;600;700;800;900&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round">
 </head>
 <body data-mdb-theme="dark">
-  <div id="content"></div> <!-- Aquí se cargará el contenido -->
-  
-  <!-- Aquí debes incluir el script -->
-  <script src="script.js"></script>
+  <header>
+    <aside class="leftmenu">
+      <nav>
+        <a class="leftmenu__item" target="_blank" href="#">
+          <span class="icon"><i class="material-icons">star</i></span>
+          <span class="title">Eum pariatur</span>
+        </a>
+        <a class="leftmenu__item" target="_blank" href="#">
+          <span class="icon"><i class="material-icons">favorite</i></span>
+          <span class="title">Sit amet consectetur adipisicing elit</span>
+        </a>
+        <a class="leftmenu__item" target="_blank" href="#">
+          <span class="icon"><i class="material-icons">lightbulb</i></span>
+          <span class="title">Nesciunt, debitis</span>
+        </a>
+        <a class="leftmenu__item" target="_blank" href="#">
+          <span class="icon"><i class="material-icons">visibility</i></span>
+          <span class="title">Harum veritatis</span>
+        </a>
+        <a class="leftmenu__item" target="_blank" href="#">
+          <span class="icon"><i class="material-icons">alarm</i></span>
+          <span class="title">Dolores et ut incidunt</span>
+        </a>
+        <a class="leftmenu__item" target="_blank" href="#">
+          <span class="icon"><i class="material-icons"><textarea name="" id="">
+            <span class="to-do-list"> 
+              <h6>TO DO LIST</h6>
+                <div class="list-title"><h7>To-Do List</h7></div>
+                  <hr>            
+                    <div class="list-body"></div>
+                    <div class="list-footer">
+                  <hr>
+                <input class="item-input" type="text" placeholder=" " maxlength="1000"/>
+                <span class="add-item" title="Add Item"></span>
+           </div>
+        </div>
+      </textarea></i></span>
+      </span>
+        </a>
+      </nav>
+    </aside>
+    <div class="noteHolder" style="left:400px;">
+<input type="checkbox" id="fold1">
+<div class="note rounded">
+ <textarea id="note-1">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</textarea>
+</div>
+  <div class="action">
+    <div class="colors">
+      <div class="note-yellow"></div>
+      <div class="note-green"></div>
+      <div class="note-levendor"></div>
+      <div class="note-orange"></div>
+    </div>
+    <button type="button" class="btn btn-edit"><i class="fa fa-palette"></i></button>
+    <button type="button" class="btn btn-del"><i class="fa fa-trash"></i></button>
+  </div>
+</div>
+<button class="btn btn-add"><i class="fa fa-plus"></i></button>
+<div class id="ball"></div>
+</header>
+  <section id="task-section">
+  </section>
+  <footer>
+    <p></p>
+  </footer>
 </body>
 </html>
